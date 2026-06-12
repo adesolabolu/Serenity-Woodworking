@@ -1,0 +1,6 @@
+{
+  "name": "Serenity Woodworking",
+  "description": "A custom woodworking and cabinetry business site featuring GSAP animations and clean navigation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
