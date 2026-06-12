@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
@@ -111,6 +113,17 @@ export function Workflow() {
               );
             })}
           </div>
+        </div>
+
+        {/* Workflow CTA */}
+        <div className="mt-20 text-center relative z-10">
+          <Link 
+            to="/contact" 
+            className="inline-flex items-center gap-2.5 px-8 py-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 transition-all text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transform duration-200 cursor-pointer"
+          >
+            <span>Discuss Your Custom Project Design & Timeline</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
       </div>

@@ -2,8 +2,14 @@ import { useRef } from "react";
 import { BLOG_POSTS } from "../data";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
 import { ArrowRight } from "lucide-react";
+import { useSEO } from "../hooks/useSEO";
 
 export function Blog() {
+  useSEO(
+    "Custom Cabinetry Journal & Woodworking Advice",
+    "Read our expert woodworking journal featuring cabinet organization ideas, seasonal kitchen remodels, wood species advice, and custom finish selection guides."
+  );
+
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +29,7 @@ export function Blog() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={gridRef}>
           {BLOG_POSTS.map((post) => (
-            <article key={post.id} className="blog-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group hover:shadow-xl transition-all duration-300">
+            <article key={post.id} data-umami-event="portfolio-view" className="blog-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group hover:shadow-xl transition-all duration-300">
               <div className="h-56 overflow-hidden">
                 <img 
                   src={post.image} 

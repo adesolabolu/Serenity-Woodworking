@@ -6,10 +6,16 @@ import { IMAGES, SERVICES } from "../data";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Testimonials } from "../components/Testimonials";
 import { Workflow } from "../components/Workflow";
+import { useSEO } from "../hooks/useSEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Home() {
+  useSEO(
+    "Premium Custom Cabinets & Woodworking | Clive, IA",
+    "Discover bespoke custom kitchen cabinets, bathroom vanities, laundry solutions, and luxury living room built-ins, handcrafted in Clive, Iowa for over 20 years."
+  );
+
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -66,10 +72,10 @@ export function Home() {
             We partner with homeowners and builders to design, build, and install timeless cabinetry that blends beauty with everyday function.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Link to="/contact" className="px-8 py-4 bg-white text-gray-900 font-medium rounded-md hover:bg-gray-100 transition-colors w-full sm:w-auto">
+            <Link to="/contact" data-umami-event="cta-click" className="px-8 py-4 bg-white text-gray-900 font-medium rounded-md hover:bg-gray-100 transition-colors w-full sm:w-auto">
               Schedule a Consultation
             </Link>
-            <Link to="/gallery" className="px-8 py-4 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors w-full sm:w-auto">
+            <Link to="/portfolio" data-umami-event="cta-click" className="px-8 py-4 bg-transparent border border-white text-white font-medium rounded-md hover:bg-white/10 transition-colors w-full sm:w-auto">
               View Our Work
             </Link>
           </div>
@@ -106,7 +112,7 @@ export function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" ref={servicesRef}>
             {SERVICES.map((service) => (
-              <Link key={service.id} to="/services" className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300">
+              <Link key={service.id} to="/services" data-umami-event="portfolio-view" className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={service.image} 
@@ -141,7 +147,7 @@ export function Home() {
         <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
             Contact us today to schedule your consultation and see how custom cabinetry can transform your space.
         </p>
-        <Link to="/contact" className="px-8 py-4 bg-white text-gray-900 font-medium rounded-md hover:bg-gray-100 transition-colors inline-block">
+        <Link to="/contact" data-umami-event="cta-click" className="px-8 py-4 bg-white text-gray-900 font-medium rounded-md hover:bg-gray-100 transition-colors inline-block">
             Start Your Project
         </Link>
       </section>

@@ -65,7 +65,7 @@ export function PortfolioGallery() {
         className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6"
       >
         {filteredItems.map(item => (
-          <div key={item.id} className="relative group overflow-hidden bg-gray-100 rounded-2xl break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-300">
+          <div key={item.id} data-umami-event="portfolio-view" className="relative group overflow-hidden bg-gray-100 rounded-2xl break-inside-avoid shadow-sm hover:shadow-2xl transition-all duration-300">
             <img 
               src={item.url} 
               alt={item.category} 

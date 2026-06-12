@@ -12,6 +12,11 @@ export function useGsapAnimation(
   useEffect(() => {
     if (!ref.current) return;
 
+    // Refresh ScrollTrigger calculations after render to ensure correct offsets
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+
     let ctx = gsap.context(() => {
       if (type === 'fade-up') {
         gsap.fromTo(ref.current, 
@@ -23,7 +28,8 @@ export function useGsapAnimation(
             ease: 'power3.out',
             scrollTrigger: {
               trigger: ref.current,
-              start: 'top 85%',
+              start: 'top 95%',
+              once: true,
             },
           }
         );
@@ -36,7 +42,8 @@ export function useGsapAnimation(
             ease: 'power2.out',
             scrollTrigger: {
               trigger: ref.current,
-              start: 'top 85%',
+              start: 'top 95%',
+              once: true,
             },
           }
         );
@@ -51,13 +58,18 @@ export function useGsapAnimation(
             ease: 'power3.out',
             scrollTrigger: {
               trigger: ref.current,
-              start: 'top 85%',
+              start: 'top 95%',
+              once: true,
             },
           }
         );
       }
     }, ref);
 
-    return () => ctx.revert();
+    return () => {
+      clearTimeout(timer);
+      ctx.revert();
+    };
   }, [ref, type, staggerSelector]);
 }
+
