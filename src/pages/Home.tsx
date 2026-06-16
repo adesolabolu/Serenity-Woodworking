@@ -54,7 +54,7 @@ export function Home() {
         description="Discover bespoke custom kitchen cabinets, bathroom vanities, laundry solutions, and luxury living room built-ins, handcrafted in Clive, Iowa for over 20 years."
       />
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] py-24 flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] py-12 flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
           <img 
             src={IMAGES.hero} 
