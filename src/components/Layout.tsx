@@ -112,7 +112,7 @@ export function Layout() {
             </nav>
 
             {/* Mobile menu button & actions */}
-            <div className="md:hidden flex items-center space-x-4">
+            <div className="md:hidden flex items-center space-x-2">
               {/* Call Icon Link */}
               <a 
                 href="tel:515-240-6132" 
