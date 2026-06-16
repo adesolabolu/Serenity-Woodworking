@@ -3,14 +3,9 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { Home, ArrowRight, Shield, Award, Flag, Hammer, Heart, CheckCircle2 } from "lucide-react";
 import { IMAGES } from "../data";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 export function About() {
-  useSEO(
-    "About Our Custom Cabinet Craftsmanship | Clive Cabinet Makers",
-    "Established in 2004, Serenity Custom Woodworking is a trusted family-owned shop crafting luxury solid wood kitchen cabinetry, built-ins, and vanities in Clive, IA."
-  );
-
   const headerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -24,6 +19,10 @@ export function About() {
 
   return (
     <div className="pt-20 pb-28 bg-gray-50/50 min-h-screen">
+      <SEO 
+        title="About Our Custom Cabinet Craftsmanship | Clive Cabinet Makers"
+        description="Established in 2004, Serenity Custom Woodworking is a trusted family-owned shop crafting luxury solid wood kitchen cabinetry, built-ins, and vanities in Clive, IA."
+      />
       <div className="max-w-4xl mx-auto px-4" ref={headerRef}>
         {/* Breadcrumb / Category */}
         <div className="mb-4 text-center sm:text-left">

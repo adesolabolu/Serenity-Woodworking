@@ -2,14 +2,9 @@ import { useRef } from "react";
 import { BLOG_POSTS } from "../data";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
 import { ArrowRight } from "lucide-react";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 export function Blog() {
-  useSEO(
-    "Custom Cabinetry Journal & Woodworking Advice",
-    "Read our expert woodworking journal featuring cabinet organization ideas, seasonal kitchen remodels, wood species advice, and custom finish selection guides."
-  );
-
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -18,6 +13,10 @@ export function Blog() {
 
   return (
     <div className="pt-20 pb-32 min-h-screen bg-gray-50">
+      <SEO 
+        title="Custom Cabinetry Journal & Woodworking Advice"
+        description="Read our expert woodworking journal featuring cabinet organization ideas, seasonal kitchen remodels, wood species advice, and custom finish selection guides."
+      />
       <div className="max-w-7xl mx-auto px-4">
         
         <div className="text-center max-w-3xl mx-auto mb-20" ref={headerRef}>

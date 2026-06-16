@@ -15,7 +15,7 @@ import {
   Wrench, 
   ChevronDown 
 } from "lucide-react";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 interface ServiceDetail {
   materials: string[];
@@ -90,11 +90,6 @@ const PROCESS_STEPS = [
 ];
 
 export function Services() {
-  useSEO(
-    "Custom Cabinetry & Woodworking Services | Clive, IA",
-    "Explore our professional cabinet services in Clive, Iowa. We design and install custom kitchen cabinets, high-moisture bathroom vanities, and built-in living shelving."
-  );
-
   const headerRef = useRef<HTMLDivElement>(null);
   const processRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -112,6 +107,10 @@ export function Services() {
 
   return (
     <div className="pt-20 pb-32 min-h-screen bg-gray-50 flex flex-col">
+      <SEO 
+        title="Custom Cabinetry & Woodworking Services | Clive, IA"
+        description="Explore our professional cabinet services in Clive, Iowa. We design and install custom kitchen cabinets, high-moisture bathroom vanities, and built-in living shelving."
+      />
       {/* Page Header */}
       <div className="max-w-7xl mx-auto px-4 w-full text-center mt-12 mb-16" ref={headerRef}>
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-200/50 rounded-full text-xs font-semibold text-gray-700 mb-4 tracking-wider uppercase">

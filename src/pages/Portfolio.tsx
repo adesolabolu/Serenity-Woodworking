@@ -3,19 +3,18 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { PortfolioGallery } from "../components/PortfolioGallery";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 export function Portfolio() {
-  useSEO(
-    "Bespoke Woodworking Gallery & Custom Cabinets Portfolio",
-    "Browse our custom woodwork kitchen designs, bathroom vanities, master closets, and bespoke living room bookcases built by hand in Des Moines, Iowa."
-  );
-
   const headerRef = useRef<HTMLDivElement>(null);
   useGsapAnimation(headerRef, 'fade-up');
 
   return (
     <div className="pt-20 pb-24 min-h-screen bg-white">
+      <SEO 
+        title="Bespoke Woodworking Gallery & Custom Cabinets Portfolio"
+        description="Browse our custom woodwork kitchen designs, bathroom vanities, master closets, and bespoke living room bookcases built by hand in Des Moines, Iowa."
+      />
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16" ref={headerRef}>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Our Portfolio</h1>

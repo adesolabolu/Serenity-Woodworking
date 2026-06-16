@@ -3,14 +3,9 @@ import { LOCATIONS, SERVICE_AREAS } from "../data";
 import { useRef } from "react";
 import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 export function ServiceAreas() {
-  useSEO(
-    "Custom Cabinetry Service Areas | Des Moines Metro",
-    "We proudly design and install high-end custom cabinetry and custom woodworks throughout Clive, Waukee, West Des Moines, Ankeny, Urbandale, and adjacent Central Iowa areas."
-  );
-
   const primaryRef = useRef<HTMLDivElement>(null);
   const otherRef = useRef<HTMLDivElement>(null);
 
@@ -23,6 +18,10 @@ export function ServiceAreas() {
 
   return (
     <div className="pt-20 pb-24 min-h-screen bg-gray-50">
+      <SEO 
+        title="Custom Cabinetry Service Areas | Des Moines Metro"
+        description="We proudly design and install high-end custom cabinetry and custom woodworks throughout Clive, Waukee, West Des Moines, Ankeny, Urbandale, and adjacent Central Iowa areas."
+      />
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Page Head */}

@@ -6,15 +6,11 @@ import { IMAGES, SERVICES, BLOG_POSTS } from "../data";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Testimonials } from "../components/Testimonials";
 import { Workflow } from "../components/Workflow";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Home() {
-  useSEO(
-    "Premium Custom Cabinets & Woodworking | Clive, IA",
-    "Discover bespoke custom kitchen cabinets, bathroom vanities, laundry solutions, and luxury living room built-ins, handcrafted in Clive, Iowa for over 20 years."
-  );
 
   const heroRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -37,24 +33,28 @@ export function Home() {
     }
 
     // Scroll Animations
-    if (servicesRef.current) {
-        gsap.fromTo(servicesRef.current.children,
+    gsap.utils.toArray<HTMLElement>('.animate-section').forEach((section) => {
+        gsap.fromTo(section,
             { y: 50, opacity: 0 },
             {
-                y: 0, opacity: 1, duration: 0.8, stagger: 0.15,
+                y: 0, opacity: 1, duration: 0.8,
                 scrollTrigger: {
-                    trigger: servicesRef.current,
+                    trigger: section,
                     start: "top 80%",
                 }
             }
-        )
-    }
+        );
+    });
   }, []);
 
   return (
     <div className="flex flex-col">
+      <SEO 
+        title="Premium Custom Cabinets & Woodworking | Clive, IA"
+        description="Discover bespoke custom kitchen cabinets, bathroom vanities, laundry solutions, and luxury living room built-ins, handcrafted in Clive, Iowa for over 20 years."
+      />
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] py-24 flex items-center justify-center overflow-hidden">
         <div ref={heroRef} className="absolute inset-0 z-0">
           <img 
             src={IMAGES.hero} 
@@ -82,26 +82,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="bg-white py-12 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center space-x-2 text-gray-600">
-                <CheckCircle2 className="w-5 h-5 text-gray-900" />
-                <span className="font-medium">Established 2004</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-600">
-                <CheckCircle2 className="w-5 h-5 text-gray-900" />
-                <span className="font-medium">BBB Accredited Since 2008</span>
-            </div>
-            <div className="flex items-center space-x-2 text-gray-600">
-                <CheckCircle2 className="w-5 h-5 text-gray-900" />
-                <span className="font-medium">Handcrafted in Central Iowa</span>
-            </div>
-        </div>
-      </section>
-
       {/* About Overview */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -113,6 +95,22 @@ export function Home() {
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 We work directly with you from the initial concept to the final installation—ensuring top-quality materials and flawless execution every step of the way.
               </p>
+
+              <div className="flex flex-col space-y-4 mb-8">
+                <div className="flex items-center space-x-3 text-gray-700">
+                    <CheckCircle2 className="w-5 h-5 text-gray-900" />
+                    <span className="font-medium">Established 2004</span>
+                </div>
+                <div className="flex items-center space-x-3 text-gray-700">
+                    <CheckCircle2 className="w-5 h-5 text-gray-900" />
+                    <span className="font-medium">BBB Accredited Since 2008</span>
+                </div>
+                <div className="flex items-center space-x-3 text-gray-700">
+                    <CheckCircle2 className="w-5 h-5 text-gray-900" />
+                    <span className="font-medium">Handcrafted in Central Iowa</span>
+                </div>
+              </div>
+
               <Link to="/about" data-umami-event="cta-click" className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors">
                 Learn More About Us <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -129,7 +127,7 @@ export function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24 bg-gray-50 animate-section">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Expertise</h2>
@@ -167,7 +165,7 @@ export function Home() {
       <Workflow />
 
       {/* Featured Portfolio Section */}
-      <section className="py-24 bg-white border-y border-gray-100">
+      <section className="py-24 bg-white border-y border-gray-100 animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-end justify-between mb-12">
             <div className="max-w-2xl">
@@ -214,7 +212,7 @@ export function Home() {
       <Testimonials />
 
       {/* Recent Articles */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-24 bg-gray-50 border-t border-gray-100 animate-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-end justify-between mb-12">
             <div className="max-w-2xl">
@@ -261,7 +259,7 @@ export function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gray-900 text-center px-4">
+      <section className="py-24 bg-gray-900 text-center px-4 animate-section">
         <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">Ready to bring your vision to life?</h2>
         <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
             Contact us today to schedule your consultation and see how custom cabinetry can transform your space.

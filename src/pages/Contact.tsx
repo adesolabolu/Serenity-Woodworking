@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, ChangeEvent, FormEvent } from "react";
 import { useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ChevronDown, MapPin, Phone, Mail, Clock, Facebook } from "lucide-react";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 const FAQS = [
   {
@@ -24,11 +24,6 @@ const FAQS = [
 ];
 
 export function Contact() {
-  useSEO(
-    "Contact Us & Design Consultation | Clive Cabinet Maker",
-    "Request a free cabinet design consultation with Serenity Custom Woodworking. Visit our Clive, IA shop or call us to talk project wood, sizing, and details."
-  );
-
   const containerRef = useRef<HTMLDivElement>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const location = useLocation();
@@ -75,6 +70,10 @@ export function Contact() {
 
   return (
     <div className="pt-20 pb-24 min-h-screen bg-gray-50">
+      <SEO 
+        title="Contact Us & Design Consultation | Clive Cabinet Maker"
+        description="Request a free cabinet design consultation with Serenity Custom Woodworking. Visit our Clive, IA shop or call us to talk project wood, sizing, and details."
+      />
       <div className="max-w-5xl mx-auto px-4" ref={containerRef}>
         <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Contact Us</h1>

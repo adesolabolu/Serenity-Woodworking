@@ -3,7 +3,7 @@ import { LOCATIONS, SERVICE_AREAS, IMAGES } from "../data";
 import { useRef } from "react";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
 import { ArrowLeft, Check, Compass, Award, ShieldCheck } from "lucide-react";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 
 export function ServiceAreaDetail() {
   const { cityId } = useParams();
@@ -15,13 +15,6 @@ export function ServiceAreaDetail() {
   // 2. Fall back to search within general 60+ locations list
   const genericCity = LOCATIONS.find(loc => loc.toLowerCase().replace(/ /g, '-') === rawCityId);
   const cityName = mainHub ? mainHub.name : genericCity;
-
-  useSEO(
-    cityName ? `Custom Cabinets in ${cityName}, IA` : "Cabinet Construction & Installation Services",
-    cityName
-      ? `Handcrafted luxury kitchen cabinetry, bathroom vanities, and built-in living shelving built custom for homes in ${cityName}, Iowa.`
-      : "Premium cabinetry and woodworks handcrafted locally in Clive, Iowa."
-  );
 
   const headerRef = useRef<HTMLDivElement>(null);
   useGsapAnimation(headerRef, "fade-up");
@@ -48,6 +41,12 @@ export function ServiceAreaDetail() {
 
   return (
     <div className="pt-20 pb-24 min-h-screen bg-gray-50">
+      <SEO 
+        title={cityName ? `Custom Cabinets in ${cityName}, IA` : "Cabinet Construction & Installation Services"}
+        description={cityName
+          ? `Handcrafted luxury kitchen cabinetry, bathroom vanities, and built-in living shelving built custom for homes in ${cityName}, Iowa.`
+          : "Premium cabinetry and woodworks handcrafted locally in Clive, Iowa."}
+      />
       <div className="max-w-4xl mx-auto px-4" ref={headerRef}>
         
         {/* Navigation Breadcrumb */}

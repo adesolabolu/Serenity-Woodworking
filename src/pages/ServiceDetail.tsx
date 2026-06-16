@@ -18,7 +18,7 @@ import {
   X 
 } from "lucide-react";
 import { useGsapAnimation } from "../hooks/useGsapAnimation";
-import { useSEO } from "../hooks/useSEO";
+import { SEO } from "../components/SEO";
 import { SERVICES, IMAGES } from "../data";
 
 interface ServiceDetailSpec {
@@ -176,12 +176,6 @@ export function ServiceDetail() {
 
   const spec = DETAIL_MAP[serviceId];
 
-  // Set page headers dynamically using custom SEO handler
-  useSEO(
-    `${spec.title} in Clive, IA | Custom Millwork`,
-    `Explore bespoke our ${spec.title} services. Handcrafted in Clive, Iowa with domestic solid woods, precision jointing, and conversion varnish.`
-  );
-
   const prevImage = () => {
     setActiveImageIndex((prev) => (prev === 0 ? spec.images.length - 1 : prev - 1));
   };
@@ -192,6 +186,10 @@ export function ServiceDetail() {
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20 pb-28">
+      <SEO 
+        title={`${spec.title} in Clive, IA | Custom Millwork`}
+        description={`Explore bespoke our ${spec.title} services. Handcrafted in Clive, Iowa with domestic solid woods, precision jointing, and conversion varnish.`}
+      />
       {/* Dynamic Hero Banner */}
       <div className="relative h-[45vh] sm:h-[55vh] w-full overflow-hidden">
         <img 
