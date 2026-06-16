@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { IMAGES, SERVICES } from "../data";
+import { IMAGES, SERVICES, BLOG_POSTS } from "../data";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Testimonials } from "../components/Testimonials";
 import { Workflow } from "../components/Workflow";
@@ -100,6 +100,34 @@ export function Home() {
         </div>
       </section>
 
+      {/* About Overview */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Our Story</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">Crafting Lasting Beauty with Intentional Design.</h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                At Serenity Custom Woodworking, we believe your home should be a reflection of who you are. Founded with a commitment to uncompromised craftsmanship, we have spent years perfecting the art of building bespoke cabinetry that is as functional as it is stunning.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                We work directly with you from the initial concept to the final installation—ensuring top-quality materials and flawless execution every step of the way.
+              </p>
+              <Link to="/about" data-umami-event="cta-click" className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-colors">
+                Learn More About Us <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
+            <div className="relative h-96 lg:h-full min-h-[400px]">
+              <img 
+                src={IMAGES.about} 
+                alt="Travis working on custom cabinets" 
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -137,9 +165,100 @@ export function Home() {
 
       {/* Workflow Section Component */}
       <Workflow />
+
+      {/* Featured Portfolio Section */}
+      <section className="py-24 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-12">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Portfolio Details</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Featured Installations</h2>
+              <p className="text-gray-600 text-lg">
+                Explore a highlight of our recent custom cabinetry projects completed throughout Central Iowa.
+              </p>
+            </div>
+            <Link to="/portfolio" data-umami-event="cta-click" className="hidden md:inline-flex items-center text-sm font-semibold text-gray-900 hover:text-gray-600 transition-colors">
+              View Full Portfolio <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-2xl h-80 bg-gray-100 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src={IMAGES.kitchen[2]} alt="Custom Kitchen Detail" className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6">
+                <h3 className="text-white font-serif font-bold text-xl">Kitchen Centers</h3>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl h-80 bg-gray-100 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 transform md:translate-y-8">
+              <img src={IMAGES.bath[0]} alt="Custom Bath Detail" className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6">
+                <h3 className="text-white font-serif font-bold text-xl">Bath Remodels</h3>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-2xl h-80 bg-gray-100 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+              <img src={IMAGES.closets[0]} alt="Custom Closet Detail" className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6">
+                <h3 className="text-white font-serif font-bold text-xl">Master Closets</h3>
+              </div>
+            </div>
+          </div>
+          <div className="md:hidden mt-8 text-center">
+            <Link to="/portfolio" data-umami-event="cta-click" className="inline-flex items-center text-sm font-semibold text-gray-900 bg-gray-100 px-6 py-3 rounded-xl hover:bg-gray-200 transition-colors">
+              View Full Portfolio <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
       
       {/* Testimonials Slider Component */}
       <Testimonials />
+
+      {/* Recent Articles */}
+      <section className="py-24 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-12">
+            <div className="max-w-2xl">
+              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Woodworking Journal</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Latest Insights</h2>
+              <p className="text-gray-600 text-lg">
+                Read our latest tips, inspiration, and woodworking guides.
+              </p>
+            </div>
+            <Link to="/blog" data-umami-event="cta-click" className="hidden md:inline-flex items-center text-sm font-semibold text-gray-900 hover:text-gray-600 transition-colors">
+              Read More Articles <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {BLOG_POSTS.slice(0, 3).map((post) => (
+              <Link key={post.id} to="/blog" data-umami-event="portfolio-view" className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col">
+                <div className="h-48 overflow-hidden relative">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <div className="text-xs text-blue-600 font-bold tracking-wider uppercase mb-3">
+                    {post.date}
+                  </div>
+                  <h3 className="text-xl font-bold font-serif text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-6 line-clamp-3 flex-grow">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center text-sm font-semibold text-gray-900 group-hover:text-blue-600">
+                    Read Article <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="md:hidden mt-8 text-center">
+            <Link to="/blog" data-umami-event="cta-click" className="inline-flex items-center text-sm font-semibold text-gray-900 bg-gray-100 px-6 py-3 rounded-xl hover:bg-gray-200 transition-colors">
+              Read More Articles <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-24 bg-gray-900 text-center px-4">

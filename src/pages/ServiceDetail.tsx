@@ -35,7 +35,7 @@ interface ServiceDetailSpec {
 }
 
 const DETAIL_MAP: Record<string, ServiceDetailSpec> = {
-  "kitchens": {
+  "kitchen-cabinets": {
     title: "Custom Kitchen Cabinets",
     subtitle: "The architectural center of your home, engineered for comfort and generational beauty.",
     intro: "We design and build bespoke high-end kitchen cabinetry, functional islands, custom range hoods, and sliding pantry systems in our Clive, Iowa workshop. Each set is handcrafted to match your space perfectly with solid wood faceframes and cabinet boxes.",
@@ -65,8 +65,8 @@ const DETAIL_MAP: Record<string, ServiceDetailSpec> = {
     ],
     accentColor: "from-amber-900/60 to-gray-950/90"
   },
-  "bathrooms": {
-    title: "Bathroom Vanities & Custom Built-Ins",
+  "bathroom-cabinets": {
+    title: "Custom Bathroom Cabinets",
     subtitle: "High-moisture luxury cabinets designed to create a spa-like retreat.",
     intro: "Bespoke vanities demand premium engineering to withstand heavy daily moisture and standing water splashes. We build gorgeous single and double floating vanities, linen towers, and storage bays that maximize room utility without sacrifice.",
     images: IMAGES.bath,
@@ -95,10 +95,10 @@ const DETAIL_MAP: Record<string, ServiceDetailSpec> = {
     ],
     accentColor: "from-blue-950/60 to-gray-950/90"
   },
-  "built-ins": {
-    title: "Built-Ins & Specialty Living Spaces",
-    subtitle: "Bespoke living room bookcases, media centers, and fireplaces tailored to custom dimensions.",
-    intro: "Convert empty walls and corners into high-functioning furniture. We fabricate fireplace wraps, floating shelves, library bookshelves, custom home bar wet-spaces, and tailored desks that integrate harmoniously into your architecture.",
+  "home-office": {
+    title: "Custom Home Office Solutions",
+    subtitle: "Bespoke desks, built-in shelving, and file cabinets tailored to your workflow.",
+    intro: "Enhance your productivity with our custom home office solutions. From built-in desks and shelving units to filing cabinets, we create a workspace that encapsulates your style and meets your professional requirements.",
     images: IMAGES.builtIns,
     materials: [
       "Select Wood Paint Alloys",
@@ -125,11 +125,11 @@ const DETAIL_MAP: Record<string, ServiceDetailSpec> = {
     ],
     accentColor: "from-stone-905/60 to-gray-950/90"
   },
-  "mudrooms": {
-    title: "Mudrooms, Laundry Rooms & Storage",
-    subtitle: "High-abuse storage arrays engineered to organize active Iowa family routines.",
-    intro: "Mudrooms act as your home's main defense against tough Iowa winter snows and spring mud. We design and install durable locker dividers, heavy-gauge benches, coat hook blocks, and pullout baskets to bring serene organization.",
-    images: IMAGES.mudroom,
+  "master-closets": {
+    title: "Custom Master Closets",
+    subtitle: "Bespoke storage arrays engineered to organize your wardrobe elegantly.",
+    intro: "Transform your storage space with our custom master closets. We design bespoke closets that ensure efficient organization while elevating your room's aesthetic appeal, bringing you a perfect blend of luxury and personalization.",
+    images: IMAGES.closets,
     materials: [
       "Baltic Birch Multi-Layer Core",
       "Select Hard Maple",

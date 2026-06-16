@@ -36,10 +36,10 @@ export const IMAGES = {
 };
 
 export const SERVICES = [
-  { id: "kitchens", title: "Custom Kitchen Cabinets", description: "Bespoke kitchen cabinetry, functional islands, and custom-built wood range hoods.", image: IMAGES.kitchen[0] },
-  { id: "bathrooms", title: "Bathroom Vanities & Cabinets", description: "Custom-built for durability in high-moisture spaces, blending luxury styling with maximized storage.", image: IMAGES.bath[0] },
-  { id: "built-ins", title: "Built-Ins & Living Spaces", description: "Fireplace surrounds, floating shelves, custom home bars, home theater cabinetry, and library bookcases.", image: IMAGES.builtIns[0] },
-  { id: "mudrooms", title: "Laundry & Mudroom Storage", description: "Meticulously organized master closets, laundry room cabinets, mudroom storage solutions.", image: IMAGES.mudroom[0] }
+  { id: "bathroom-cabinets", title: "Custom Bathroom Cabinets", description: "Explore a new level of refinement and functionality with our custom bathroom cabinets. We merge creativity with practicality, designing cabinets that maximize storage while adding an elegant touch to your bathroom space. From modern minimalistic designs to traditional wooden aesthetics, we bring your dream bathroom to life.", image: IMAGES.bath[0] },
+  { id: "kitchen-cabinets", title: "Custom Kitchen Cabinets", description: "Make your kitchen the heart of your home with our bespoke kitchen cabinets. Our design experts work closely with you to craft a kitchen space that is not only visually stunning but also caters to your unique cooking and storage needs. Using high-quality materials, we create durable, stylish, and practical kitchen cabinets that stand the test of time.", image: IMAGES.kitchen[0] },
+  { id: "master-closets", title: "Custom Master Closets", description: "Transform your storage space with our custom master closets. We understand that every piece of clothing or accessory is a prized possession, and we design closets that ensure efficient organization while elevating your room's aesthetic appeal. Experience the blend of luxury and functionality with our personalized master closets.", image: IMAGES.closets[0] },
+  { id: "home-office", title: "Custom Home Office Solutions", description: "Enhance your productivity with our custom home office solutions. From built-in desks and shelving units to filing cabinets, we create a workspace that encapsulates your style and meets your professional requirements. Our thoughtful designs and top-notch craftsmanship ensure your home office is a space where work feels more inspiring and less chore-like.", image: IMAGES.builtIns[0] }
 ];
 
 export const TESTIMONIALS = [
